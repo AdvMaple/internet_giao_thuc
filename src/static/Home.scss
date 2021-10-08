@@ -1,0 +1,34 @@
+.Home {
+  background-image: url("./img/home-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  display: grid;
+  align-items: center;
+  height: 100vh;
+  animation: fade-up;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+
+  .text {
+    position: relative;
+    width: fit-content;
+    h1 {
+      width: 20rem;
+    }
+
+    margin-left: 5rem;
+    height: fit-content;
+    animation: fade-up;
+    animation-duration: 1.5s;
+    animation-timing-function: ease;
+  }
+}
+@keyframes fade-up {
+  0% {
+    margin-top: 100vh;
+  }
+  100% {
+    margin-top: 0;
+  }
+}

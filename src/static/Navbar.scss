@@ -1,0 +1,79 @@
+nav {
+  $nav_height: 5rem;
+  $icon_height: 2rem;
+  $icon_max_height: 3rem;
+  $item_width: 6.5rem;
+
+  background: rgb(255, 255, 255);
+  height: $nav_height;
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    margin: 0 0;
+    padding: 0 0;
+
+    li {
+      height: 100%;
+      width: $item_width;
+      // border: 1px black solid;
+
+      .icon-container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-top: 0rem;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        // cursor: pointer;
+
+        .icon {
+          max-height: $icon_max_height;
+          max-width: $icon_max_height;
+          height: $icon_height;
+        }
+
+        .icon-label {
+          display: none;
+          cursor: pointer;
+          height: 30%;
+          font-weight: 500;
+          font-size: 1em;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      .icon-container:hover {
+        padding-top: 0.25rem;
+        border-top: 0.25em solid #1890ff;
+
+        .icon {
+          animation: change-color 0s;
+          animation-fill-mode: forwards;
+          animation-timing-function: cubic-bezier(0.77, 0.45, 0.96, 1.14);
+        }
+
+        .icon-label {
+          display: flex;
+        }
+
+        @keyframes change-color {
+          0% {
+          }
+          100% {
+            // Ở đây đang dùng svg nên có thể dùng cách khác
+            // Đây là cách đổi màu cho png
+            filter: invert(41%) sepia(71%) saturate(2307%) hue-rotate(191deg)
+              brightness(101%) contrast(100%);
+          }
+        }
+      }
+    }
+  }
+}
