@@ -2,7 +2,6 @@ import { Modal, Button } from "antd";
 import { useState } from "react";
 
 export default function GraphContainer(props) {
-  console.log("props:", props);
   const [toggle, setToggle] = useState(false);
 
   const handleClose = () => {
@@ -20,6 +19,7 @@ export default function GraphContainer(props) {
         >
           Thông tin thú vị về {props.name}
         </div>
+
         <Modal
           visible={toggle}
           onOk={handleClose}

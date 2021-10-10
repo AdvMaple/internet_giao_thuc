@@ -1,14 +1,14 @@
 import data from "./../../data.json";
-import { Pie } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import ItemCard from "../../components/ItemCard";
 import GraphContainer from "../../components/GraphContainer";
 
-function PieChart() {
+function DoughnutChart() {
   const data = {
     labels: ["Apple", "Samsung", "Oppo", "Xiaomi", "Huawei", "Khác"],
     datasets: [
       {
-        label: "Doanh số điện thoại 8 tháng đầu năm",
+        label: "Doanh số",
         data: [39, 28, 11, 3, 9, 10],
         backgroundColor: [
           "hsla(0,0%,64%,0.8)", // Apple
@@ -35,13 +35,49 @@ function PieChart() {
     plugins: {
       title: {
         display: true,
-        postion: "bottom",
+        position: "bottom",
         text: "Doanh số điện thoại 8 tháng đầu năm của các hãng Điện thoại",
       },
     },
   };
 
-  return <Pie data={data} options={options} />;
+  const renderTableHead = () => {
+    const td = data.labels.map((item) => {
+      return <td>{item}</td>;
+    });
+
+    return (
+      <>
+        <th>Hãng</th>
+        {td}
+      </>
+    );
+  };
+
+  const renderTableData = () => {
+    return data.datasets.map((dataset) => {
+      const td = dataset.data.map((d) => <td>{d}</td>);
+      return (
+        <tr>
+          <th>{dataset.label}</th>
+          {td}
+        </tr>
+      );
+    });
+  };
+
+  return (
+    <>
+      <Doughnut data={data} options={options} />
+
+      <div className="table-container">
+        <table>
+          <tr>{renderTableHead()}</tr>
+          {renderTableData()}
+        </table>
+      </div>
+    </>
+  );
 }
 
 export default function Phones() {
@@ -54,12 +90,12 @@ export default function Phones() {
   return (
     <>
       <div className="Store">
-        <div class="item-list">{renderList()}</div>
-      </div>
+        <div className="item-list">{renderList()}</div>
 
-      <GraphContainer name="điện thoại">
-        <PieChart />
-      </GraphContainer>
+        <GraphContainer name="điện thoại">
+          <DoughnutChart />
+        </GraphContainer>
+      </div>
     </>
   );
 }

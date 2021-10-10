@@ -8,7 +8,7 @@ function InfoBadge({ text }) {
 function Rating({ rating }) {
   return (
     <span className="rating">
-      {rating}/5 <i class="bi bi-star"></i>
+      {rating}/5 <i className="bi bi-star"></i>
     </span>
   );
 }

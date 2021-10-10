@@ -22,9 +22,52 @@ function PieChart() {
     ],
   };
 
-  const options = { plugins: { legend: { display: false } } };
+  const options = {
+    plugins: {
+      title: {
+        display: true,
+        position: "bottom",
+        text: "Doanh số điện thoại 8 tháng đầu năm của các hãng Điện thoại",
+      },
+    },
+  };
 
-  return <Pie height="300" width="300" data={data} options={options} />;
+  const renderTableHead = () => {
+    const td = data.labels.map((item) => {
+      return <td>{item}</td>;
+    });
+
+    return (
+      <>
+        <th>Hãng</th>
+        {td}
+      </>
+    );
+  };
+
+  const renderTableData = () => {
+    return data.datasets.map((dataset) => {
+      const td = dataset.data.map((d) => <td>{d}</td>);
+      return (
+        <tr>
+          <th>{dataset.label}</th>
+          {td}
+        </tr>
+      );
+    });
+  };
+
+  return (
+    <>
+      <Pie data={data} options={options} />
+      <div className="table-container">
+        <table>
+          <tr>{renderTableHead()}</tr>
+          {renderTableData()}
+        </table>
+      </div>
+    </>
+  );
 }
 
 export default function Tablets() {
@@ -38,10 +81,11 @@ export default function Tablets() {
     <>
       <div className="Store">
         <div class="item-list">{renderList()}</div>
+
+        <GraphContainer name="tablet">
+          <PieChart />
+        </GraphContainer>
       </div>
-      <GraphContainer name="tablet">
-        <PieChart />
-      </GraphContainer>
     </>
   );
 }

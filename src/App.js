@@ -12,9 +12,27 @@ import { useState } from "react";
 function App() {
   const [cart, setCart] = useState([]);
 
-  function addItem(item) {
+  function addItem(item, count) {
+    console.log(count);
     let newCart = cart;
-    newCart.push(item);
+
+    if (newCart.length != 0) {
+      for (let i = 0; i < newCart.length; i++) {
+        if (newCart[i].name === item.name) {
+          item.count = item.count ? parseInt(item.count) + count : count;
+          return;
+        }
+      }
+
+      item.count = count;
+      newCart.push(item);
+    } else {
+      item.count = count;
+      newCart.push(item);
+    }
+
+    console.log(newCart);
+
     setCart(newCart);
   }
 

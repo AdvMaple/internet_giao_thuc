@@ -4,7 +4,7 @@ import { useHistory, useLocation, useParams } from "react-router";
 import data from "./../../data.json";
 import TechRow from "../../components/TechRow";
 
-export default function Laptop(props) {
+export default function Phone(props) {
   let { id } = useParams();
 
   let { pathname } = useLocation();
@@ -14,8 +14,8 @@ export default function Laptop(props) {
   // eslint-disable-next-line
   const [item, setItem] = useState(data?.[itemCatagory][id]);
 
-  console.log(item);
-
+  // console.log(item);
+  const [count, setCount] = useState(1);
   return (
     <Card className="Detail">
       <div className="Item">
@@ -41,19 +41,29 @@ export default function Laptop(props) {
             >
               <div className="form-number">
                 <label>Số lượng: </label>
-                <InputNumber min={1} max={99} defaultValue={1} />
+                <InputNumber
+                  onChange={(e) => {
+                    setCount(e);
+                  }}
+                  min={1}
+                  max={99}
+                  defaultValue={1}
+                  value={count}
+                />
               </div>
 
               <div className="form-button">
                 <Button
                   type="primary"
-                  onClick={() => props.handleAddCart(item)}
+                  onClick={() => {
+                    props.handleAddCart(item, count);
+                  }}
                 >
                   Mua ngay
                 </Button>
                 <Button
                   type="primary"
-                  onClick={() => props.handleAddCart(item)}
+                  onClick={() => props.handleAddCart(item, count)}
                 >
                   Thêm vào giỏ hàng
                 </Button>
@@ -65,33 +75,13 @@ export default function Laptop(props) {
       <div className="Description">
         <div className="des">
           {" "}
-          <div>
-            <p>
-              Id cupidatat aliquip amet incididunt aliquip ex est commodo
-              mollit. Est proident dolore quis do qui incididunt nisi non
-              consequat est laborum. Est sint culpa adipisicing et exercitation
-              proident ullamco excepteur nulla mollit do officia.
-            </p>
-            <p>
-              Id cupidatat aliquip amet incididunt aliquip ex est commodo
-              mollit. Est proident dolore quis do qui incididunt nisi non
-              consequat est laborum. Est sint culpa adipisicing et exercitation
-              proident ullamco excepteur nulla mollit do officia. Est sint culpa
-              adipisicing et exercitation proident ullamco excepteur nulla
-              mollit do officia. Est sint culpa adipisicing et exercitation
-              proident ullamco excepteur nulla mollit do officia.
-            </p>
-            <p>
-              Id cupidatat aliquip amet incididunt aliquip ex est commodo
-              mollit. Est proident dolore quis do qui incididunt nisi non
-              consequat est laborum. Est sint culpa adipisicing et exercitation
-              proident ullamco excepteur nulla mollit do officia.
-            </p>
+          <div className="review-text">
+            {item.review_text
+              ? item.review_text
+              : "Sản phẩm không có thông tin review."}
           </div>
-          <div>
+          <div className="review-video">
             <iframe
-              width="560"
-              height="315"
               src={
                 item.review_vid
                   ? item.review_vid

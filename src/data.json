@@ -12,6 +12,7 @@
       "brand": "Apple",
       "product_code": "ABC0001",
       "review_vid": "https://www.youtube.com/embed/X1b3C2081-Q",
+      "review_text": "Đây là sản phẩm tuyệt với nhất thế giới, không một sản phẩm nào có thể sánh bằng Iphone 12.",
       "rate": "4"
     },
     {
@@ -506,6 +507,28 @@
       "review": "100",
       "price": "230000 đ",
       "name": "Pin sạc dự phòng ENERGIZER 10,000MAH - UE10045"
+    }
+  ],
+  "posts": [
+    {
+      "title": "Các thành viên nhóm 3",
+      "main": "<PersonalInfo></PersonalInfo>"
+    },
+    {
+      "title": "Chương trình khuyến mãi 2.",
+      "main": "Apple giảm giá 99.99% cho những người gọi tới số điện thoại 113 !!!"
+    },
+    {
+      "title": "Chương trình khuyến mãi 3.",
+      "main": "Oppo tuyên bố phá sản và mọi sản phẩm mua từ cửa hàng sẽ miễn phí 100% !!!"
+    },
+    {
+      "title": "Chương trình khuyến mãi 4.",
+      "main": "Laboris pariatur irure anim ea esse dolore sit duis eiusmod. Irure enim consequat aliquip amet mollit ea ea magna. Tempor ipsum amet nulla ex est. Consequat id consequat et magna cillum quis ullamco cillum id non Lorem adipisicing quis non."
+    },
+    {
+      "title": "Chương trình khuyến mãi 5.",
+      "main": "Laboris pariatur irure anim ea esse dolore sit duis eiusmod. Irure enim consequat aliquip amet mollit ea ea magna. Tempor ipsum amet nulla ex est. Consequat id consequat et magna cillum quis ullamco cillum id non Lorem adipisicing quis non."
     }
   ]
 }

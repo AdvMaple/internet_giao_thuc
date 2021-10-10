@@ -10,11 +10,10 @@ export default function BuyForm() {
   return (
     <div className="BuyForm">
       <Form
-        labelCol={{ span: 5 }}
+        labelCol={{ span: 6 }}
         wrapperCol={{ span: 12 }}
-        onSubmit={(e) => {
+        onFinish={(e) => {
           console.log("Gửi");
-          e.preventDefault();
           openNotifycation();
         }}
       >
@@ -59,15 +58,11 @@ export default function BuyForm() {
           </Radio.Group>
         </Form.Item>
 
-        <Button
-          type="primary"
-          htmlType="submit"
-          onClick={() => {
-            openNotifycation();
-          }}
-        >
-          Đặt hàng thanh toán sau
-        </Button>
+        <Form.Item>
+          <Button type="primary" htmlType="submit">
+            Đặt hàng thanh toán sau
+          </Button>
+        </Form.Item>
       </Form>
     </div>
   );

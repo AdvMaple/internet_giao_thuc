@@ -10,7 +10,7 @@
 
     .item-container {
       display: grid;
-      grid-template-columns: 55% 40% 5%;
+      grid-template-columns: 55% 5% 40% 5%;
       margin: 1rem 1rem;
 
       .item.name {
@@ -18,18 +18,31 @@
         font-weight: bold;
       }
 
-      .item-price {
+      .item-count {
         grid-column: 2;
       }
 
-      .delete-button {
+      .item-price {
         grid-column: 3;
+      }
+
+      .delete-button {
+        grid-column: 4;
         color: red;
         cursor: pointer;
       }
 
       .delete-button:hover {
         text-decoration: underline;
+      }
+    }
+
+    .total {
+      font-size: large;
+      font-weight: bold;
+
+      .number {
+        color: red;
       }
     }
   }
