@@ -11,6 +11,6 @@ https://advmaple-internet-giao-thuc.herokuapp.com/
 
 ## Hướng dẫn cài đặt
 
-    Nếu có nodejs:
-        1. `npm install`
-        2. `npm start`
+Nếu có nodejs:
+  `npm install`
+  `npm start`
